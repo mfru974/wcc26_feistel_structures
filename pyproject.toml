@@ -14,7 +14,7 @@ authors = [
 ]
 
 dependencies = [
-    "sboxU @ git+https://github.com/lpp-crypto/sboxU.git@v2"
+    "sboxUv2 @ git+https://github.com/lpp-crypto/sboxU.git@v2"
 ]
 
 [tool.setuptools]
