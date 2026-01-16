@@ -16,13 +16,11 @@ The code depends on **sboxUv2**.
 
 ## Installation
 
-From the root of the repository, run:
-
-sage -pip install -e .
+Install sboxUv2 from https://github.com/lpp-crypto/sboxU/tree/v2 following the Readme instructions.
 
 ## Usage
 
-The experimental scripts are located in the sage_scripts/ directory and can be executed with Sage, e.g.
+The experimental scripts are located in the sage_scripts/ directory and can be executed with Sage, e.g: 
 
 sage sage_scripts/commutative.py 
 
