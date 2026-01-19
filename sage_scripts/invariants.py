@@ -228,3 +228,10 @@ print(
     ],
     "\n"
 )
+
+print("Quadratic invariants of Skinny64's S-box\n")
+print("Using the TLS19 algorithm, we obtain:\n")
+
+S3 = list(sboxes["SKINNY_4"])
+for g in all_invariants_up_to_degree(S3, 2):
+    print(BooleanFunction(g).algebraic_normal_form())

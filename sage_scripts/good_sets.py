@@ -240,7 +240,7 @@ def main():
         if algebraic_degree(Df4) <= 1:
             affine_derivatives.append(a)
 
-        if is_affine(Df4):
+        if is_affine(list(set(Df4))):
             affine_image_derivatives.append(a)
 
     print(

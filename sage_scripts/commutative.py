@@ -1,11 +1,5 @@
-from sboxUv2 import (
-    Sb,
-    rand_Sbox,
-    feistel_round,
-    swap_halves,
-    algebraic_degree,
-    oplus,
-)
+from sboxUv2 import Sb,feistel_round,swap_halves,algebraic_degree,oplus,rand_Sbox
+
 from sage.crypto.sboxes import sboxes
 
 
