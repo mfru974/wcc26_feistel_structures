@@ -16,7 +16,7 @@ The code depends on **sboxUv2**.
 
 ## Installation
 
-Install sboxUv2 from https://github.com/lpp-crypto/sboxU/tree/v2 following the Readme instructions.
+Run "sage -pip install -e." at the root of this project. It will install sboxUv2 as a dependency.
 
 ## Usage
 
