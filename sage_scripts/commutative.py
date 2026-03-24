@@ -1,4 +1,4 @@
-from sboxUv2 import Sb,feistel_round,swap_halves,algebraic_degree,oplus,rand_Sbox
+from sboxU import get_sbox,feistel_round,swap_halves,algebraic_degree,oplus,rand_Sbox
 
 from sage.crypto.sboxes import sboxes
 
@@ -23,7 +23,7 @@ def G(a, f):
         for x in f.output_space():
             lut.append(N * oplus(y, a) + oplus(x, der[y]))
 
-    return Sb(lut)
+    return get_sbox(lut)
 
 
 # ============================================================
@@ -43,18 +43,18 @@ print("Checking the Feistel decompositions of Scream and iScream:\n")
 
 SW = swap_halves(8)
 
-f1 = Sb([0, 2, 0, 0xB, 3, 0, 0, 0xA, 1, 0xE, 0, 6, 0xA, 4, 5, 2])
-f2 = Sb([0, 2, 0xC, 7, 5, 0xF, 0xD, 6, 4, 0xE, 8, 9, 3, 1, 0xB, 0xA])
-f3 = Sb([2, 0, 0xB, 0, 0, 3, 0xA, 0, 0xE, 1, 6, 0, 4, 0xA, 2, 5])
+f1 = get_sbox([0, 2, 0, 0xB, 3, 0, 0, 0xA, 1, 0xE, 0, 6, 0xA, 4, 5, 2])
+f2 = get_sbox([0, 2, 0xC, 7, 5, 0xF, 0xD, 6, 4, 0xE, 8, 9, 3, 1, 0xB, 0xA])
+f3 = get_sbox([2, 0, 0xB, 0, 0, 3, 0xA, 0, 0xE, 1, 6, 0, 4, 0xA, 2, 5])
 
 print("Constructing Scream's S-box as a 3-round Feistel structure:")
 S_scream = feistel_round(f3) * feistel_round(f2) * feistel_round(f1) * SW
-print("Succeeded\n" if S_scream == Sb(sboxes["Scream"]) else "Failed\n")
+print("Succeeded\n" if S_scream == get_sbox(sboxes["Scream"]) else "Failed\n")
 
 print("Constructing iScream's S-box as a 3-round Feistel structure:")
-f4 = Sb([0, 8, 6, 13, 5, 15, 7, 12, 4, 14, 2, 3, 9, 1, 11, 10])
+f4 = get_sbox([0, 8, 6, 13, 5, 15, 7, 12, 4, 14, 2, 3, 9, 1, 11, 10])
 S_iscream = SW * (feistel_round(f4) ** 3)
-print("Succeeded\n" if S_iscream == Sb(sboxes["iScream"]) else "Failed\n")
+print("Succeeded\n" if S_iscream == get_sbox(sboxes["iScream"]) else "Failed\n")
 
 
 # ============================================================

@@ -1,4 +1,4 @@
-from sboxUv2 import Sb, ddt, algebraic_degree, F2_trans
+from sboxU import get_sbox, ddt, algebraic_degree, F2_trans
 
 
 # ============================================================
@@ -55,12 +55,12 @@ def has_perfect_sets(f1, f2, f3):
 # Declaring the round functions
 # ============================================================
 
-f1 = Sb([0,2,0,0xb,3,0,0,0xa,1,0xe,0,6,0xa,4,5,2])
-f2 = Sb([0,2,0xc,7,5,0xf,0xd,6,4,0xe,8,9,3,1,0xb,0xa])
-f3 = Sb([2,0,0xb,0,0,3,0xa,0,0xe,1,6,0,4,0xa,2,5])
-f4 = Sb([0,8,6,0xd,5,0xf,7,0xc,4,0xe,2,3,9,1,0xb,0xa])
-f5 = Sb([0xc,5,0xa,2,5,5,7,6,5,0xb,0,0xf,4,3,5,3])
-f6 = Sb([3,1,9,0,6,7,8,2,9,6,0xd,9,9,5,9,0xe])
+f1 = get_sbox([0,2,0,0xb,3,0,0,0xa,1,0xe,0,6,0xa,4,5,2])
+f2 = get_sbox([0,2,0xc,7,5,0xf,0xd,6,4,0xe,8,9,3,1,0xb,0xa])
+f3 = get_sbox([2,0,0xb,0,0,3,0xa,0,0xe,1,6,0,4,0xa,2,5])
+f4 = get_sbox([0,8,6,0xd,5,0xf,7,0xc,4,0xe,2,3,9,1,0xb,0xa])
+f5 = get_sbox([0xc,5,0xa,2,5,5,7,6,5,0xb,0,0xf,4,3,5,3])
+f6 = get_sbox([3,1,9,0,6,7,8,2,9,6,0xd,9,9,5,9,0xe])
 
 
 def main():

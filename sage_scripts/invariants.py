@@ -1,5 +1,5 @@
-from sboxUv2 import (
-    Sb,
+from sboxU import (
+    get_sbox,
     oplus,
     scal_prod,
     swap_halves,
@@ -158,7 +158,7 @@ def from_small_to_big_invariant(u, f):
     for y in f.input_space():
         for x in f.output_space():
             lut.append(oplus(scal_prod(u, f[y]), scal_prod(u, x)))
-    return Sb(lut)
+    return get_sbox(lut)
 
 
 # ============================================================
@@ -173,8 +173,8 @@ for g in all_invariants_up_to_degree(S1, 2):
     print(BooleanFunction(g).algebraic_normal_form())
 
 
-f1 = Sb([0,2,0,0xB,3,0,0,0xA,1,0xE,0,6,0xA,4,5,2])
-f3 = Sb([2,0,0xB,0,0,3,0xA,0,0xE,1,6,0,4,0xA,2,5])
+f1 = get_sbox([0,2,0,0xB,3,0,0,0xA,1,0xE,0,6,0xA,4,5,2])
+f3 = get_sbox([2,0,0xB,0,0,3,0xA,0,0xE,1,6,0,4,0xA,2,5])
 
 common_components = [
     u for u in range(1, 16)
@@ -206,7 +206,7 @@ for g in all_invariants_up_to_degree(S2, 2):
     print(BooleanFunction(g).algebraic_normal_form())
 
 
-f4 = Sb([0, 8, 6, 13, 5, 15, 7, 12, 4, 14, 2, 3, 9, 1, 11, 10])
+f4 = get_sbox([0, 8, 6, 13, 5, 15, 7, 12, 4, 14, 2, 3, 9, 1, 11, 10])
 
 quad_components = [
     u for u in range(1, 16)

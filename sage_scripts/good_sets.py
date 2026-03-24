@@ -1,6 +1,6 @@
 from math import log
-from sboxUv2 import (
-    Sb, ddt, xddt, yddt, zddt,
+from sboxU import (
+    get_sbox, ddt, xddt, yddt, zddt,
     feistel_round, swap_halves,
     BinLinearBasis, oplus, F2_trans,
     algebraic_degree, is_affine,
@@ -170,9 +170,9 @@ def is_perfect_set(A, S):
 # ============================================================
 
 def main():
-    f1 = Sb([0,2,0,0xb,3,0,0,0xa,1,0xe,0,6,0xa,4,5,2])
-    f2 = Sb([0,2,0xc,7,5,0xf,0xd,6,4,0xe,8,9,3,1,0xb,0xa])
-    f3 = Sb([2,0,0xb,0,0,3,0xa,0,0xe,1,6,0,4,0xa,2,5])
+    f1 = get_sbox([0,2,0,0xb,3,0,0,0xa,1,0xe,0,6,0xa,4,5,2])
+    f2 = get_sbox([0,2,0xc,7,5,0xf,0xd,6,4,0xe,8,9,3,1,0xb,0xa])
+    f3 = get_sbox([2,0,0xb,0,0,3,0xa,0,0xe,1,6,0,4,0xa,2,5])
 
     Feistel = swap_halves(8) * feistel_round(f3) * feistel_round(f2) * feistel_round(f1)
 
@@ -229,7 +229,7 @@ def main():
 
     print("\nNow examining the function f4:\n")
 
-    f4 = Sb([0, 8, 6, 13, 5, 15, 7, 12, 4, 14, 2, 3, 9, 1, 11, 10])
+    f4 = get_sbox([0, 8, 6, 13, 5, 15, 7, 12, 4, 14, 2, 3, 9, 1, 11, 10])
 
     affine_derivatives = []
     affine_image_derivatives = []
